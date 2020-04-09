@@ -149,13 +149,13 @@ public class FilterAppController {
 
 		switch(filterSelection.getValue()) {
 		case MIN:
-			filter = new DummyFilter(); // TODO: replace by minimum filter
+			filter = new Minimumsfilter(); // TODO: replace by minimum filter
 			break;
 		case MAX:
-			filter = new DummyFilter(); // TODO: replace by maximum filter
+			filter = new Maximumsfilter(); // TODO: replace by maximum filter
 			break;
 		case MEDIAN:
-			filter = new DummyFilter(); // TODO: replace by median filter
+			filter = new Medianfilter(); // TODO: replace by median filter
 			break;
 		}
 		
