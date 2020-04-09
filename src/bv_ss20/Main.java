@@ -18,7 +18,7 @@ public class Main extends Application {
 		BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("FilterAppView.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("Filter Application - WS2019/20 - <Your Name>"); // TODO: add your name(s)
+		primaryStage.setTitle("Filter Application - WS2019/20 - Berresheim - Englisch ");
 		primaryStage.show();
 	}
 	
