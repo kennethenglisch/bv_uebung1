@@ -8,6 +8,7 @@ package bv_ss20;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Random;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -88,7 +89,7 @@ public class RasterImage {
 					
 				
 				int pos = y*width + x;
-				int pix = argb[pos];  // Lesen der Originalwerte 
+				int pix = argb[pos];
 
 				int r = (pix >> 16) & 0xff;
 				int g = (pix >>  8) & 0xff;
@@ -111,8 +112,53 @@ public class RasterImage {
 	 * @param strength The brightness to be added or subtracted from a pixel's gray level
 	 */
 	public void addNoise(double quantity, int strength) {
-		// TODO: add noise with the given quantity and strength
-	}
-	
 
+        int rn, gn, bn;
+        double wechseln = height * width * quantity;
+        int range = height * width; 
+        Random ran = new Random();
+
+            for (int i = 0; i < wechseln; i++)
+            {
+
+            int pos = ran.nextInt(range);
+            int pix = argb[pos];
+
+            int r = (pix >> 16) & 0xff;
+            int g = (pix >>  8) & 0xff;
+            int b =  pix        & 0xff;
+
+            if (ran.nextInt(2) == 1)
+            {
+                rn = r + strength;
+                gn = g + strength;
+                bn = b + strength;
+            }
+            else {
+                rn = r - strength;
+                gn = g - strength;
+                bn = b - strength;
+            }
+
+            if (rn > 255) {
+                rn = 255;
+            }
+            else if (rn < 0) {
+                rn = 0;
+            }
+            if (gn > 255) {
+                gn = 255;
+            }
+            else if (gn < 0) {
+                gn = 0;
+            }
+            if (bn > 255) {
+                bn = 255;
+            }
+            else if (bn < 0) {
+                bn = 0;
+            }
+            argb[pos] = (0xFF<<24) | (rn<<16) | (gn<<8) | bn;
+            }
+}
 }
