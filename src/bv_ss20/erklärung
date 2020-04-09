@@ -1,0 +1,5 @@
+MinFilter: Einnen Kernel nehmen, und das kleinste Pixel von der Nachbarschaft nehmen ale neuer Wert fuer Position (x,y)
+
+MaxFilter: Einnen Kernel nehmen, und das groesste Pixel von der Nachbarschaft nehmen als neuer Wert fuer Position (x,y)
+
+MedianFilter: Einen Kernel nehmen, und den Medianwert nehmen als neuer Wert 
