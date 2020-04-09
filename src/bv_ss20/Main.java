@@ -21,7 +21,6 @@ public class Main extends Application {
 		primaryStage.setTitle("Filter Application - WS2019/20 - Berresheim - Englisch ");
 		primaryStage.show();
 	}
-	//noob
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -75,13 +75,33 @@ public class RasterImage {
 			pw.setPixels(0, 0, width, height, PixelFormat.getIntArgbInstance(), argb, 0, width);
 			imageView.setImage(wr);
 		}
+
 	}
 	
 	
 	// image point operations to be added here
 	
 	public void convertToGray() {
-		// TODO: convert the image to grayscale
+		for (int y=0; y<height; y++) {
+            for (int x=0; x<width; x++) {
+
+
+                int pos = y*width + x;
+                int pix = argb[pos];  // Lesen der Originalwerte 
+
+                int r = (pix >> 16) & 0xff;
+                int g = (pix >>  8) & 0xff;
+                int b =  pix        & 0xff;
+
+                int durchschnitt = (r + g + b) / 3;
+
+                int rn = durchschnitt;
+                int gn = durchschnitt;
+                int bn = durchschnitt;
+
+                argb[pos] = (0xFF<<24) | (rn<<16) | (gn<<8) | bn;
+            }
+        }
 	}
 	
 	/**
